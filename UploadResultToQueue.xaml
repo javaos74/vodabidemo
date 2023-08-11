@@ -1,4 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Test" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1105,4891" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.MLServices;assembly=UiPath.MLServices" xmlns:uma="clr-namespace:UiPath.MLServices.Activities;assembly=UiPath.MLServices.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Test" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="vodabi_result" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Test.vodabi_result>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Test.vodabi_result>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1105,3988</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Test_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -126,9 +137,8 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="674.5,4826" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="674.5,3923" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="vodabi_result" />
       <Variable x:TypeArguments="x:String" Name="endpoint" />
       <Variable x:TypeArguments="ss:SecureString" Name="apikey" />
       <Variable x:TypeArguments="njl:JObject" Name="jobj" />
@@ -167,26 +177,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="VodabiModelInfo" CacheStrategy="None" DisplayName="Get Credential" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="612.5,144" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[apikey]" Username="[endpoint]" />
-    <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" ApiKey="[new System.Net.NetworkCredential(string.Empty, apikey).Password]" Connection="Endpoint" DisplayName="ML 스킬" ExternApiFileType="File" sap:VirtualizedContainerService.HintSize="612.5,394" sap2010:WorkflowViewState.IdRef="MLSkills_1" Item="input_test.txt" JsonResponse="[vodabi_result]" NextPageNum="2" RefreshList="False" SkillURL="[endpoint]" TotalCount="1">
-      <uma:MLSkills.MLSkillList>
-        <scg:List x:TypeArguments="um:MLSkill" Capacity="4">
-          <x:Reference>__ReferenceID0</x:Reference>
-        </scg:List>
-      </uma:MLSkills.MLSkillList>
-      <uma:MLSkills.SelectedMLSkill>
-        <um:MLSkill x:Name="__ReferenceID0" AccessUri="https://ai-stg-b-uipath.deskover.com/mlskills/f4aa181c-14fb-4194-ad10-707e8303e44f/7fc5e38b-b31a-4c3f-8d60-f65e10bb47d0/cluster-b/vodabi2" AccountId="f4aa181c-14fb-4194-ad10-707e8303e44f" Description="" Id="ddb55b0d-a1f4-4b96-b8b6-0a04dea2aa58" InputDescription="" InputType="FILE" Name="vodabi2" OutputDescription="" ProjectId="fbb30dff-8b79-48b3-a4ed-58ae26f3b121" TenantId="7fc5e38b-b31a-4c3f-8d60-f65e10bb47d0" />
-      </uma:MLSkills.SelectedMLSkill>
-    </uma:MLSkills>
     <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="612.5,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jobj]" JsonString="[vodabi_result]" />
     <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="612.5,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[lbls]" JsonString="[jobj(&quot;bantc_rst&quot;).ToString]" />
-    <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="612.5,3111" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lbls]">
+    <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="612.5,2939" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lbls]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="njl:JToken">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="njl:JToken" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="578.5,2923" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="578.5,2751" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -491,36 +490,42 @@
                   </ui:IfElseIfBlock>
                 </sc:BindingList>
               </ui:IfElseIf.ConditionBlocks>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </ui:IfElseIf>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="536.5,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[num_words]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[jobj("num_rst")(0)("num_word").ToString().Replace("[", string.Empty).Replace("]", string.Empty)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[num_numbers]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[jobj("num_rst")(0)("real_number").ToString().Replace("[", string.Empty).Replace("]", string.Empty)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="612.5,101" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="612.5,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[num_words]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[jobj("num_rst")(0)("num_word").ToString().Replace("[", string.Empty).Replace("]", string.Empty)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[num_numbers]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[jobj("num_rst")(0)("real_number").ToString().Replace("[", string.Empty).Replace("]", string.Empty)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:Int32">[score]</OutArgument>
@@ -571,6 +576,5 @@
         <InArgument x:TypeArguments="x:String" x:Key="Result">OK</InArgument>
       </ui:SetTransactionStatus.Output>
     </ui:SetTransactionStatus>
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="vodabi.json" sap:VirtualizedContainerService.HintSize="612.5,135" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[vodabi_result]" />
   </Sequence>
 </Activity>
