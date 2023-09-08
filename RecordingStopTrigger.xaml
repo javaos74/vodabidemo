@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1105,2365</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>799,2758</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RecordingStopTrigger_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -135,7 +135,7 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RecordingStopTrigger" sap:VirtualizedContainerService.HintSize="546,2300" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RecordingStopTrigger" sap:VirtualizedContainerService.HintSize="546,2693" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ml_endpoint" />
       <Variable x:TypeArguments="ss:SecureString" Name="ml_apikey" />
@@ -147,7 +147,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:FileChangeTriggerV3 ChangeType="Renamed" DisplayName="File Change Trigger" Enabled="True" FileNameFilter="*.*" sap:VirtualizedContainerService.HintSize="484,206" sap2010:WorkflowViewState.IdRef="FileChangeTriggerV3_1" IncludeSubdirectories="True" NotifyFilters="FileName" Path="[Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;SpeakerRecord&quot;)]" SchedulingMode="Sequential" TriggerId="50b69e41-4454-4848-b9dc-d9bec14899c7" />
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="VodabiModelInfo" CacheStrategy="None" DisplayName="Get Credential" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="484,144" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ml_apikey]" Username="[ml_endpoint]" />
-    <ui:ForEachFileX DisplayName="For Each File In Folder" Filter="*.wav" Folder="[Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;SpeakerRecord&quot;)]" sap:VirtualizedContainerService.HintSize="484,1759" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="CreationDateNewFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File In Folder" Filter="*.wav" Folder="[Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;SpeakerRecord&quot;)]" sap:VirtualizedContainerService.HintSize="484,2152" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="CreationDateNewFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -156,7 +156,7 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="450,1495" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="450,1888" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="stt_result" />
               <Variable x:TypeArguments="x:String" Name="endpoint" />
@@ -172,8 +172,10 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="ClovaSpeechCred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="388,144" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secret]" Username="[endpoint]" />
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,91" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;STT엔진을 통해서 녹음파일을 텍스트로 변환 중...&quot;]" />
             <sbs:ClovaSpeech Boostings="{x:Null}" Completion="sync" DisplayName="Clova Speech Engine" Endpoint="[endpoint]" FullText="[stt_result]" sap:VirtualizedContainerService.HintSize="388,189" sap2010:WorkflowViewState.IdRef="ClovaSpeech_1" Language="ko-KR" Secret="[new System.Net.NetworkCredential(string.Empty, secret).Password]" VoiceFilePath="[CurrentFile.FullName]" />
-            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" Encoding="UTF8" FileName="vodabi_input.txt" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[stt_result]" />
+            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" Encoding="UTF-8" FileName="vodabi_input.txt" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[stt_result]" />
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,91" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;변환된 텍스트 파일로 세일즈 KPI를 VODABI 모델에서 추출 중...&quot;]" />
             <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" ApiKey="[new System.Net.NetworkCredential(string.Empty, ml_apikey).Password]" Connection="Endpoint" DisplayName="ML 스킬" ExternApiFileType="File" sap:VirtualizedContainerService.HintSize="388,394" sap2010:WorkflowViewState.IdRef="MLSkills_1" Item="vodabi_input.txt" JsonResponse="[vodabi_result]" NextPageNum="2" RefreshList="False" SkillURL="[ml_endpoint]" TotalCount="1">
               <uma:MLSkills.MLSkillList>
                 <scg:List x:TypeArguments="um:MLSkill" Capacity="4">
@@ -185,6 +187,7 @@
               </uma:MLSkills.SelectedMLSkill>
             </uma:MLSkills>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;보다비 분석 결과 &quot; + vodabi_result.ToString]" />
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,91" sap2010:WorkflowViewState.IdRef="ReportStatus_3" StatusText="[&quot;VODABI 모델 결과를 Upload 중...&quot;]" />
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="UploadResultToQueue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UploadResultToQueue.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="vodabi_result">
