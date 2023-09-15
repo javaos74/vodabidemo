@@ -1,5 +1,9 @@
 {
-  "Tags": [],
+  "Tags": [
+    {
+      "Key": "vodabi"
+    }
+  ],
   "SeparateRuntimeDependencies": true,
   "IncludeSources": true
 }

@@ -255,7 +255,7 @@
                                   <OutArgument x:TypeArguments="x:String">[authority_value]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[convert.ToString(a_pn_prob)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[convert.ToString(Math.Round(a_pn_prob*100))+"%"]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
@@ -320,7 +320,7 @@
                                   <OutArgument x:TypeArguments="x:String">[budget_value]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[Convert.ToString(B_pn_prob)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( Math.Round(B_pn_prob*100))+"%"]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
@@ -385,7 +385,7 @@
                                   <OutArgument x:TypeArguments="x:String">[competition_value]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( C_pn_prob)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( Math.Round(C_pn_prob*100))+"%"]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
@@ -450,7 +450,7 @@
                                   <OutArgument x:TypeArguments="x:String">[needs_value]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[Convert.ToString(N_pn_prob)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( Math.Round(N_pn_prob*100))+"%"]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
@@ -515,7 +515,7 @@
                                   <OutArgument x:TypeArguments="x:String">[question_value]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[convert.ToString(Q_pn_prob)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[convert.ToString(Math.Round(Q_pn_prob*100))+"%"]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
@@ -580,7 +580,7 @@
                                   <OutArgument x:TypeArguments="x:String">[timeline_value]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( T_pn_prob)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( Math.Round(T_pn_prob*100))+"%"]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">

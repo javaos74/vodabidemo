@@ -267,7 +267,7 @@
                       {
                         "components": [
                           {
-                            "tag": "h2",
+                            "tag": "h3",
                             "content": "Needs",
                             "key": "label1",
                             "input": false,
