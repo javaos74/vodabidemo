@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="RecordingStopTrigger" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sbs="clr-namespace:SampleActivities.Basic.Speech;assembly=SampleActivities" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.MLServices;assembly=UiPath.MLServices" xmlns:uma="clr-namespace:UiPath.MLServices.Activities;assembly=UiPath.MLServices.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="RecordingStopTrigger" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sbs="clr-namespace:SampleActivities.Basic.Speech;assembly=SampleActivities" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.MLServices;assembly=UiPath.MLServices" xmlns:uma="clr-namespace:UiPath.MLServices.Activities;assembly=UiPath.MLServices.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
     <x:Property Name="TriggerEventArgs" Type="InArgument(ui:FileChangeTriggerArgs)" />
@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>799,2758</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>740.8,2978.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RecordingStopTrigger_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,6 +59,10 @@
       <x:String>System.Dynamic</x:String>
       <x:String>System.Collections.Specialized</x:String>
       <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Studio.Forms.Runtime</x:String>
+      <x:String>UiPath.Forms.Activities</x:String>
+      <x:String>UiPath.Platform.GlobalVariables</x:String>
+      <x:String>UiPath.Forms.Activities.Base</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -133,9 +137,13 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Forms.Runtime</AssemblyReference>
+      <AssemblyReference>UiPath.Forms.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RecordingStopTrigger" sap:VirtualizedContainerService.HintSize="546,2693" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RecordingStopTrigger" sap:VirtualizedContainerService.HintSize="545.6,2913.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ml_endpoint" />
       <Variable x:TypeArguments="ss:SecureString" Name="ml_apikey" />
@@ -145,9 +153,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:FileChangeTriggerV3 ChangeType="Renamed" DisplayName="File Change Trigger" Enabled="True" FileNameFilter="*.*" sap:VirtualizedContainerService.HintSize="484,206" sap2010:WorkflowViewState.IdRef="FileChangeTriggerV3_1" IncludeSubdirectories="True" NotifyFilters="FileName" Path="[Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;SpeakerRecord&quot;)]" SchedulingMode="Sequential" TriggerId="50b69e41-4454-4848-b9dc-d9bec14899c7" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="VodabiModelInfo" CacheStrategy="None" DisplayName="Get Credential" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="484,144" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ml_apikey]" Username="[ml_endpoint]" />
-    <ui:ForEachFileX DisplayName="For Each File In Folder" Filter="*.wav" Folder="[Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;SpeakerRecord&quot;)]" sap:VirtualizedContainerService.HintSize="484,2152" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="CreationDateNewFirst" SkipFolderWithoutPermission="False">
+    <ui:FileChangeTriggerV3 ChangeType="Renamed" DisplayName="File Change Trigger" Enabled="True" FileNameFilter="*.*" sap:VirtualizedContainerService.HintSize="483.2,204.8" sap2010:WorkflowViewState.IdRef="FileChangeTriggerV3_1" IncludeSubdirectories="True" NotifyFilters="FileName" Path="[Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;SpeakerRecord&quot;)]" SchedulingMode="Sequential" TriggerId="50b69e41-4454-4848-b9dc-d9bec14899c7" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="VodabiModelInfo" CacheStrategy="None" DisplayName="Get Credential" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="483.2,143.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ml_apikey]" Username="[ml_endpoint]" />
+    <ui:ForEachFileX DisplayName="For Each File In Folder" Filter="*.wav" Folder="[Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;SpeakerRecord&quot;)]" sap:VirtualizedContainerService.HintSize="483.2,2373.6" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="CreationDateNewFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -156,7 +164,7 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="450,1888" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="449.6,2110.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="stt_result" />
               <Variable x:TypeArguments="x:String" Name="endpoint" />
@@ -165,37 +173,103 @@
               <Variable x:TypeArguments="ui:QueueItem" Name="trx" />
               <Variable x:TypeArguments="njl:JObject" Name="vodabi_jobj" />
               <Variable x:TypeArguments="x:String" Name="bantc_rst_b" />
+              <Variable x:TypeArguments="x:String" Name="sales_score" />
+              <Variable x:TypeArguments="x:String" Name="authority_value" />
+              <Variable x:TypeArguments="x:String" Name="budget_value" />
+              <Variable x:TypeArguments="x:String" Name="authority_keywords" />
+              <Variable x:TypeArguments="x:String" Name="budget_keywords" />
+              <Variable x:TypeArguments="x:String" Name="competition_value" />
+              <Variable x:TypeArguments="x:String" Name="competition_keywords" />
+              <Variable x:TypeArguments="x:String" Name="needs_value" />
+              <Variable x:TypeArguments="x:String" Name="needs_keywords" />
+              <Variable x:TypeArguments="x:String" Name="question_value" />
+              <Variable x:TypeArguments="x:String" Name="question_keywords" />
+              <Variable x:TypeArguments="x:String" Name="timeline_value" />
+              <Variable x:TypeArguments="x:String" Name="timeline_keywords" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="ClovaSpeechCred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="388,144" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secret]" Username="[endpoint]" />
-            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,91" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;STT엔진을 통해서 녹음파일을 텍스트로 변환 중...&quot;]" />
-            <sbs:ClovaSpeech Boostings="{x:Null}" Completion="sync" DisplayName="Clova Speech Engine" Endpoint="[endpoint]" FullText="[stt_result]" sap:VirtualizedContainerService.HintSize="388,189" sap2010:WorkflowViewState.IdRef="ClovaSpeech_1" Language="ko-KR" Secret="[new System.Net.NetworkCredential(string.Empty, secret).Password]" VoiceFilePath="[CurrentFile.FullName]" />
-            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" Encoding="UTF-8" FileName="vodabi_input.txt" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[stt_result]" />
-            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,91" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;변환된 텍스트 파일로 세일즈 KPI를 VODABI 모델에서 추출 중...&quot;]" />
-            <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" ApiKey="[new System.Net.NetworkCredential(string.Empty, ml_apikey).Password]" Connection="Endpoint" DisplayName="ML 스킬" ExternApiFileType="File" sap:VirtualizedContainerService.HintSize="388,394" sap2010:WorkflowViewState.IdRef="MLSkills_1" Item="vodabi_input.txt" JsonResponse="[vodabi_result]" NextPageNum="2" RefreshList="False" SkillURL="[ml_endpoint]" TotalCount="1">
+            <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="ClovaSpeechCred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="387.2,143.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secret]" Username="[endpoint]" />
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="387.2,90.4" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;STT엔진을 통해서 녹음파일을 텍스트로 변환 중...&quot;]" />
+            <sbs:ClovaSpeech Boostings="{x:Null}" Completion="sync" DisplayName="Clova Speech Engine" Endpoint="[endpoint]" FullText="[stt_result]" sap:VirtualizedContainerService.HintSize="387.2,188" sap2010:WorkflowViewState.IdRef="ClovaSpeech_1" Language="ko-KR" Secret="[new System.Net.NetworkCredential(string.Empty, secret).Password]" VoiceFilePath="[CurrentFile.FullName]" />
+            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" Encoding="UTF-8" FileName="vodabi_input.txt" sap:VirtualizedContainerService.HintSize="387.2,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[stt_result]" />
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="387.2,90.4" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;변환된 텍스트 파일로 세일즈 KPI를 VODABI 모델에서 추출 중...&quot;]" />
+            <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SelectedMLSkill="{x:Reference __ReferenceID0}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" ApiKey="[new System.Net.NetworkCredential(string.Empty, ml_apikey).Password]" Connection="Endpoint" DisplayName="ML 스킬" ExternApiFileType="File" sap:VirtualizedContainerService.HintSize="387.2,393.6" sap2010:WorkflowViewState.IdRef="MLSkills_1" Item="vodabi_input.txt" JsonResponse="[vodabi_result]" NextPageNum="2" RefreshList="False" SkillURL="[ml_endpoint]" TotalCount="1">
               <uma:MLSkills.MLSkillList>
                 <scg:List x:TypeArguments="um:MLSkill" Capacity="4">
-                  <x:Reference>__ReferenceID0</x:Reference>
+                  <um:MLSkill x:Name="__ReferenceID0" AccessUri="https://ai-stg-b-uipath.deskover.com/mlskills/f4aa181c-14fb-4194-ad10-707e8303e44f/7fc5e38b-b31a-4c3f-8d60-f65e10bb47d0/cluster-b/vodabi2" AccountId="f4aa181c-14fb-4194-ad10-707e8303e44f" Description="" Id="ddb55b0d-a1f4-4b96-b8b6-0a04dea2aa58" InputDescription="" InputType="FILE" Name="vodabi2" OutputDescription="" ProjectId="fbb30dff-8b79-48b3-a4ed-58ae26f3b121" TenantId="7fc5e38b-b31a-4c3f-8d60-f65e10bb47d0" />
                 </scg:List>
               </uma:MLSkills.MLSkillList>
-              <uma:MLSkills.SelectedMLSkill>
-                <um:MLSkill x:Name="__ReferenceID0" AccessUri="https://ai-stg-b-uipath.deskover.com/mlskills/f4aa181c-14fb-4194-ad10-707e8303e44f/7fc5e38b-b31a-4c3f-8d60-f65e10bb47d0/cluster-b/vodabi2" AccountId="f4aa181c-14fb-4194-ad10-707e8303e44f" Description="" Id="ddb55b0d-a1f4-4b96-b8b6-0a04dea2aa58" InputDescription="" InputType="FILE" Name="vodabi2" OutputDescription="" ProjectId="fbb30dff-8b79-48b3-a4ed-58ae26f3b121" TenantId="7fc5e38b-b31a-4c3f-8d60-f65e10bb47d0" />
-              </uma:MLSkills.SelectedMLSkill>
             </uma:MLSkills>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;보다비 분석 결과 &quot; + vodabi_result.ToString]" />
-            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,91" sap2010:WorkflowViewState.IdRef="ReportStatus_3" StatusText="[&quot;VODABI 모델 결과를 Upload 중...&quot;]" />
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="UploadResultToQueue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UploadResultToQueue.xaml">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;보다비 분석 결과 &quot; + vodabi_result.ToString]" />
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="387.2,90.4" sap2010:WorkflowViewState.IdRef="ReportStatus_3" StatusText="[&quot;VODABI 모델 결과를 Upload 중...&quot;]" />
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="UploadResultToQueue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UploadResultToQueue.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="vodabi_result">
                   <VisualBasicValue x:TypeArguments="x:String" ExpressionText="vodabi_result" />
                 </InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="sales_score">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="sales_score" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="authority_value">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="authority_value" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="budget_value">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="budget_value" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="authority_keywords">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="authority_keywords" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="budget_keywords">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="budget_keywords" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="competition_value">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="competition_value" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="competition_keywords">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="competition_keywords" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="needs_value">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="needs_value" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="needs_keywords">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="needs_keywords" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="question_value">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="question_value" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="question_keywords">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="question_keywords" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="timeline_value">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="timeline_value" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="timeline_keywords">
+                  <VisualBasicReference x:TypeArguments="x:String" ExpressionText="timeline_keywords" />
+                </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:Break sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="Break_1" />
+            <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" ShowInTaskbar="{x:Null}" ShowMargin="{x:Null}" Top="{x:Null}" TopMost="{x:Null}" Width="{x:Null}" DisplayName="Show Form" FormId="fc26c8fc-68a1-4d27-9890-60663b0fab05" sap:VirtualizedContainerService.HintSize="387.2,187.2" sap2010:WorkflowViewState.IdRef="ShowFormActivity_1" IsAsync="True" Title="VODABI 분석 결과" WindowState="[UiPath.Studio.Forms.Runtime.WindowState.Normal]">
+              <ufa:ShowFormActivity.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="sales_score">[sales_score]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="budget_value">[budget_value]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="budget_keywords">[budget_keywords]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="authority_value">[authority_value]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="authority_keywords">[authority_keywords]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="needs_value">[needs_value]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="needs_keywords">[needs_keywords]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="timeline_value">[timeline_value]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="timeline_keywords">[timeline_keywords]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="competition_value">[competition_value]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="competition_keywords">[competition_keywords]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="question_value">[question_value]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="question_keywords">[question_keywords]</InArgument>
+              </ufa:ShowFormActivity.Arguments>
+            </ufa:ShowFormActivity>
+            <ui:Break sap:VirtualizedContainerService.HintSize="387.2,24.8" sap2010:WorkflowViewState.IdRef="Break_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEachFileX.Body>

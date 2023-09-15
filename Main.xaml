@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="799,821" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="740.8,1031.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -32,6 +32,10 @@
       <x:String>UiPath.MLServices.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -81,9 +85,11 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="450,339" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="643.2,966.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="selected_file" />
       <Variable x:TypeArguments="x:String" Name="vodabi_result" />
@@ -93,11 +99,41 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:StartTriggers ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="로컬 트리거 실행" sap:VirtualizedContainerService.HintSize="388,97" sap2010:WorkflowViewState.IdRef="StartTriggers_1" UnSafe="False" WorkflowFileName=".local\generated\Triggers.Generated.xaml">
+    <ui:StartTriggers ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="로컬 트리거 실행" sap:VirtualizedContainerService.HintSize="580.8,96" sap2010:WorkflowViewState.IdRef="StartTriggers_1" UnSafe="False" WorkflowFileName=".local\generated\Triggers.Generated.xaml">
       <ui:StartTriggers.Arguments>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:StartTriggers.Arguments>
     </ui:StartTriggers>
-    <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,91" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;녹음 파일이 만들어질때 까지 대기중...&quot;]" />
+    <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="580.8,90.4" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;녹음 파일이 만들어질때 까지 대기중...&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="580.8,588" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="545.6,509.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Application: MainWindow" sap:VirtualizedContainerService.HintSize="483.2,397.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="97e55b0e-c81c-4e11-8164-13c9dcc265b1" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,106.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="515, 154, 1000, 750" FilePath="WuhanNetPowerTechnologyCo.381802FE7AED1_63m8b6nby1dvp!App" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQsSURBVFhHvZjrb1VFFMUHURSUhyCKoIAPQEoRxUfB/8P/QdOEQDCo0WhqiAYDGokGJRoJidFAFKPBFCtILRQqUKzUF1pBECvyhkCLKd3Onrv3OevMnXPONJau5Je1Z+919syX++WaPD2xsJGeVB4T5Kwz9sHKybXlql/wJdUv2EL1dRath7Anz6jWkoVNtYsebaJFdV+Rc6yx58+wHqScPCmrJY9spTwWe57HYObkWRUtfWgbPfXw146l4q62fZ1hPVQ5eZ4xy+ZvpyKent/sCM2YPIWyTNk+xT3u2QeayfHgNxl/RmslJ1cmzcXu83PmuXkt9Py8HRZ1v64QyqG62s4kud6LfdIlOnW0J/ONEnuvefH+nfTCXAu7hc+uB87zUA7l51Cx+0I501DbSg21u6hhrpCpedZKLyU1znbJ9RTMoWL3hXJm+Zw2Wj5nt8V6jTifsXZenVOFcqjYfaGceXn2t8S8UiMuZ+3xWWd+ThXKofDbon2hnFkxaw+9et/eDLE9FfY0h/o/d5iVs9pp5cx9KXyW3ipXQ9/LqUI5VOy+UM68PmM/FfEa+8zqPqPi2s+htBfK5aE5s/reDlp9j8X5d4m/oTXi5VSZjJunM1bsvlDOvHn398S8JY5oj12FORXm/BlLe+/UHJBO2sNv/B67WTO9k9bcZRF/26/FVThTYU7nqKJe5i6sxc3aaT/S2mk/AHyW3vS0VmFOhTk/zyrqpcAO2GfenfoTMe9N/dnCnoIzFeZUmNMa5edZ+I3OFZyZdXf+QuvuqPA+uNYOm1FtrOtKZqpzhy4nOd2H0n2o2HvN+ikHaf1ky5RfLeBeD1XU029RRT28I9QzH9z+G2WY3FVdW0fhrEy4T9XXcyXpJeTcaz6a9Dt9aGHPQ+eqw5suZOZ5wgw/SqX7Yu41G249RMzG2w47Noi7GmbsKD+3b9lJmRA1P96dzsRR+o3uxpw/M59MPEIfT/yjEM5oDlWUS3qTqr8J5UJwxnw64Qg5bjma8U1aK5LbPOOYXJUqlOPaV14O3b/XfDb+T/p8/DGLul9X8HMDFe5iYu81X9z8F20eZ2G38Nn1wHkeyvX398v1+eo93he9L5QzjWO7qXHs39Q4TsjUPOumLUmNM6y75TkVXfm3PzcXu09zpmnMP9Q05rjF+mhxPmPtvDynKstVHOqCnNl60wlito0Wl7P2+KyzspyqLBe7j91sH3WSmm88lSGmN1Dht0zsvaZl1BlqGXk6hc/S2+Fq6ENuoCrbl3ev+3+m9YazlMdO9pHVff4hxOrSwb7ku7x9Ppxzj2O1jThPbddbRpxLfLfWyBDn5HkV7b3uAu3x0B7Ohionz8qq/dqLtN/SPtyitdfLzK5STp4TVsc1PVThEnUMhzpx5erk5Bnl6hzWSweEzmGXMzXPkMHIybWejPkPtGWzljBAg0kAAAAASUVORK5CYII=" InformativeScreenshot="83d8f19da937dbbfd4f7e03e06ea0708.png" Selector="&lt;wnd app='audiorecoding.exe' appid='WuhanNetPowerTechnologyCo.381802FE7AED1_63m8b6nby1dvp!App' title='MainWindow' /&gt;" Title="MainWindow" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
   </Sequence>
 </Activity>

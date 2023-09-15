@@ -6,6 +6,8 @@
     "CustomDUActivities": "[1.0.3]",
     "UiPath.DesktopTriggers.Activities": "[1.0.2]",
     "UiPath.Excel.Activities": "[2.20.2]",
+    "UiPath.Form.Activities": "[23.4.6]",
+    "UiPath.FormActivityLibrary.Contracts": "[2.0.5]",
     "UiPath.Mail.Activities": "[1.20.2]",
     "UiPath.MLServices.Activities": "[2.0.0]",
     "UiPath.System.Activities": "[23.4.3]",

@@ -1,6 +1,19 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Test" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="vodabi_result" Type="InArgument(x:String)" />
+    <x:Property Name="sales_score" Type="OutArgument(x:String)" />
+    <x:Property Name="authority_value" Type="OutArgument(x:String)" />
+    <x:Property Name="budget_value" Type="OutArgument(x:String)" />
+    <x:Property Name="authority_keywords" Type="OutArgument(x:String)" />
+    <x:Property Name="budget_keywords" Type="OutArgument(x:String)" />
+    <x:Property Name="competition_value" Type="OutArgument(x:String)" />
+    <x:Property Name="competition_keywords" Type="OutArgument(x:String)" />
+    <x:Property Name="needs_value" Type="OutArgument(x:String)" />
+    <x:Property Name="needs_keywords" Type="OutArgument(x:String)" />
+    <x:Property Name="question_value" Type="OutArgument(x:String)" />
+    <x:Property Name="question_keywords" Type="OutArgument(x:String)" />
+    <x:Property Name="timeline_value" Type="OutArgument(x:String)" />
+    <x:Property Name="timeline_keywords" Type="OutArgument(x:String)" />
   </x:Members>
   <this:Test.vodabi_result>
     <InArgument x:TypeArguments="x:String" />
@@ -8,7 +21,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1105,3988</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>740.8,4394.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Test_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -137,7 +150,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="674.5,3923" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="675.2,4329.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="endpoint" />
       <Variable x:TypeArguments="ss:SecureString" Name="apikey" />
@@ -177,34 +190,34 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="612.5,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jobj]" JsonString="[vodabi_result]" />
-    <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="612.5,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[lbls]" JsonString="[jobj(&quot;bantc_rst&quot;).ToString]" />
-    <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="612.5,2939" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lbls]">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="612.8,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jobj]" JsonString="[vodabi_result]" />
+    <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="612.8,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[lbls]" JsonString="[jobj(&quot;bantc_rst&quot;).ToString]" />
+    <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="612.8,3314.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lbls]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="njl:JToken">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="njl:JToken" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="578.5,2751" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="579.2,3126.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="536.5,2663" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="536,3036.8" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
               <ui:IfElseIf.ConditionBlocks>
                 <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                   <ui:IfElseIfBlock BlockType="If" Condition="[currentItem(&quot;bantcq_lbl&quot;).ToString = &quot;A&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="A-본문" sap:VirtualizedContainerService.HintSize="485.5,305" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="A-본문" sap:VirtualizedContainerService.HintSize="485.6,368.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.5,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                           <ui:MultipleAssign.AssignOperations>
-                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:String">[A_pn_lbl]</OutArgument>
@@ -237,6 +250,22 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem("keywords").ToString().Replace("]", string.Empty).Replace("[", string.Empty)]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[authority_value]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[convert.ToString(a_pn_prob)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[authority_keywords]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[A_keywords]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
@@ -245,15 +274,15 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentItem(&quot;bantcq_lbl&quot;).ToString = &quot;B&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="B - 본문" sap:VirtualizedContainerService.HintSize="485.5,305" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <Sequence DisplayName="B - 본문" sap:VirtualizedContainerService.HintSize="485.6,368.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.5,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                           <ui:MultipleAssign.AssignOperations>
-                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:String">[B_pn_lbl]</OutArgument>
@@ -286,6 +315,22 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem("keywords").ToString().Replace("]", string.Empty).Replace("[", string.Empty)]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[budget_value]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString(B_pn_prob)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[budget_keywords]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[B_keywords]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
@@ -294,15 +339,15 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentItem(&quot;bantcq_lbl&quot;).ToString = &quot;C&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="C-본문" sap:VirtualizedContainerService.HintSize="485.5,305" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence DisplayName="C-본문" sap:VirtualizedContainerService.HintSize="485.6,368.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.5,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
                           <ui:MultipleAssign.AssignOperations>
-                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:String">[C_pn_lbl]</OutArgument>
@@ -335,6 +380,22 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem("keywords").ToString().Replace("]", string.Empty).Replace("[", string.Empty)]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[competition_value]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( C_pn_prob)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[competition_keywords]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[C_keywords]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
@@ -343,15 +404,15 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentItem(&quot;bantcq_lbl&quot;).ToString = &quot;N&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="N-본문" sap:VirtualizedContainerService.HintSize="485.5,305" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="N-본문" sap:VirtualizedContainerService.HintSize="485.6,368.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.5,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
                           <ui:MultipleAssign.AssignOperations>
-                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:String">[N_pn_lbl]</OutArgument>
@@ -384,6 +445,22 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem("keywords").ToString().Replace("]", string.Empty).Replace("[", string.Empty)]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[needs_value]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString(N_pn_prob)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[needs_keywords]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[N_keywords]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
@@ -392,15 +469,15 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentItem(&quot;bantcq_lbl&quot;).ToString = &quot;Q&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="Q-본문" sap:VirtualizedContainerService.HintSize="485.5,305" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence DisplayName="Q-본문" sap:VirtualizedContainerService.HintSize="485.6,368.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.5,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                           <ui:MultipleAssign.AssignOperations>
-                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:String">[Q_pn_lbl]</OutArgument>
@@ -433,6 +510,22 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem("keywords").ToString().Replace("]", string.Empty).Replace("[", string.Empty)]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[question_value]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[convert.ToString(Q_pn_prob)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[question_keywords]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[Q_keywords]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
@@ -441,15 +534,15 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[currentItem(&quot;bantcq_lbl&quot;).ToString = &quot;T&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="T-본문" sap:VirtualizedContainerService.HintSize="485.5,305" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <Sequence DisplayName="T-본문" sap:VirtualizedContainerService.HintSize="485.6,368.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.5,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
                           <ui:MultipleAssign.AssignOperations>
-                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:String">[T_pn_lbl]</OutArgument>
@@ -482,6 +575,22 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem("keywords").ToString().Replace("]", string.Empty).Replace("[", string.Empty)]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[timeline_value]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[Convert.ToString( T_pn_prob)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[timeline_keywords]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[T_keywords]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
@@ -507,7 +616,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="612.5,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="612.8,194.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -534,15 +643,23 @@
               <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(jobj("score").ToString)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[sales_score]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Convert.ToString(score)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Transaction Item" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="612.5,196" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1" QueueType="VodabiQ" TransactionItem="[trx]">
+    <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Transaction Item" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="612.8,195.2" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1" QueueType="VodabiQ" TransactionItem="[trx]">
       <ui:AddTransactionItem.TransactionInformation>
         <scg:Dictionary x:TypeArguments="x:String, InArgument" />
       </ui:AddTransactionItem.TransactionInformation>
     </ui:AddTransactionItem>
-    <ui:SetTransactionStatus ContinueOnError="{x:Null}" Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set Transaction Status" ErrorType="Business" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="612.5,194" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_2" Status="Successful" TransactionItem="[trx]">
+    <ui:SetTransactionStatus ContinueOnError="{x:Null}" Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set Transaction Status" ErrorType="Business" FolderPath="FinanceDemo" sap:VirtualizedContainerService.HintSize="612.8,193.6" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_2" Status="Successful" TransactionItem="[trx]">
       <ui:SetTransactionStatus.Analytics>
         <InArgument x:TypeArguments="x:String" x:Key="a_lbl">[A_pn_lbl]</InArgument>
         <InArgument x:TypeArguments="x:Single" x:Key="a_prob">[A_pn_prob]</InArgument>
